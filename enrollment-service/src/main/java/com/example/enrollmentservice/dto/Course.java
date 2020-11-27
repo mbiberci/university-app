@@ -1,0 +1,14 @@
+package com.example.enrollmentservice.dto;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Data;
+
+import java.math.BigDecimal;
+
+@Data
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Course {
+    private String title;
+    private BigDecimal credit;
+    private String instructor;
+}

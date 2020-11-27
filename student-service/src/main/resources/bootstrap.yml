@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: student-service
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server
