@@ -5,8 +5,9 @@ spring:
     config:
       server:
         git:
-          uri: file:///${user.home}/config-data
+          uri: https://github.com/mbiberci/university-app.git
           force-pull: true
+          search-paths: config-data
 
 server:
   port: 8888
