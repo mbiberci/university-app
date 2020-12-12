@@ -5,7 +5,7 @@ import com.example.enrollmentservice.dto.Klasse;
 import com.example.enrollmentservice.dto.Schedule;
 import com.example.enrollmentservice.model.Enrollment;
 import com.example.enrollmentservice.service.EnrollmentService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Example;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequiredArgsConstructor
 public class EnrollmentController {
 
-    @Autowired
-    private EnrollmentService enrollmentService;
+    private final EnrollmentService enrollmentService;
 
     @GetMapping(path = "/schedule/{studentId}")
     public Schedule getScheduleByStudentId(@PathVariable("studentId") Long studentId) {

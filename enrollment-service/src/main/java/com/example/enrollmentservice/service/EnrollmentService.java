@@ -8,7 +8,7 @@ import com.example.enrollmentservice.dto.Schedule;
 import com.example.enrollmentservice.dto.Student;
 import com.example.enrollmentservice.model.Enrollment;
 import com.example.enrollmentservice.repository.EnrollmentRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
@@ -18,18 +18,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class EnrollmentService {
 
-    private CourseClient courseClient;
-    private StudentClient studentClient;
-    private EnrollmentRepository enrollmentRepository;
-
-    @Autowired
-    public EnrollmentService(CourseClient courseClient, StudentClient studentClient,EnrollmentRepository enrollmentRepository) {
-        this.courseClient = courseClient;
-        this.studentClient = studentClient;
-        this.enrollmentRepository = enrollmentRepository;
-    }
+    private final CourseClient courseClient;
+    private final StudentClient studentClient;
+    private final EnrollmentRepository enrollmentRepository;
 
     public Schedule getScheduleByStudentId(Long studentId) {
         Student student = studentClient.getStudentById(studentId).getContent();
